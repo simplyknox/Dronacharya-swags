@@ -22,7 +22,7 @@ app.use(session({
     },
 }));
 
-mongoose.connect('mongodb+srv://miniproject:miniproject@miniproject.pk7t7rd.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv:XYZ', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });
