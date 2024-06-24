@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Orders</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .order-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .order-item {
+            margin-bottom: 16px;
+        }
+
+        .no-orders {
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Previous Orders</h2>
+        <ul class="order-list" id="orderList">
+            <!-- Orders or "No Previous Orders" message will be dynamically inserted here -->
+        </ul>
+    </div>
+
+    <script>
+        // Assume you have an array of orders available in the JavaScript code
+        const orders = [];
+
+        // Function to populate the order list
+        function populateOrderList() {
+            const orderList = document.getElementById('orderList');
+            orderList.innerHTML = ''; // Clear existing content
+
+            if (orders.length === 0) {
+                // Display "No Previous Orders" message
+                const noOrdersMessage = document.createElement('p');
+                noOrdersMessage.className = 'no-orders';
+                noOrdersMessage.textContent = 'No previous orders found.';
+                orderList.appendChild(noOrdersMessage);
+            } else {
+                // Display orders
+                orders.forEach(order => {
+                    const orderItem = document.createElement('li');
+                    orderItem.className = 'order-item';
+                    orderItem.textContent = order; // Replace with actual order details
+                    orderList.appendChild(orderItem);
+                });
+            }
+        }
+
+        // Call the function to populate the order list
+        populateOrderList();
+    </script>
+</body>
+
+</html>

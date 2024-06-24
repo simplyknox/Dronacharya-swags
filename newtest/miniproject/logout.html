@@ -1,0 +1,22 @@
+<!-- Example HTML for a logout button -->
+<button id="logoutButton">Logout</button>
+
+<!-- Example JavaScript for handling the logout button click -->
+<script>
+  document
+    .getElementById("logoutButton")
+    .addEventListener("click", async () => {
+      // Send a request to the logout route
+      const response = await fetch("/logout", {
+        method: "GET",
+        credentials: "same-origin", // Include credentials (cookies) in the request
+      });
+
+      if (response.ok) {
+        // Redirect to the login page after successful logout
+        window.location.href = "/login";
+      } else {
+        console.error("Logout failed");
+      }
+    });
+</script>

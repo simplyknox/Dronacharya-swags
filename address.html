@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Form</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            /* Center the icon and text vertically */
+        }
+
+        nav a span.icon {
+            margin-right: 5px;
+            /* Adjust the spacing between icon and text */
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        form {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <header style="
+    padding-top: 0px;
+    padding-bottom: 0px;
+">
+        <h3>Address Form</h3>
+        <nav>
+            <a href="/previous-orders"><span class="icon">&#x1F4C3;</span> Previous Orders</a>
+            <a href="/changeemail"><span class="icon">&#x2709;</span> Change Email</a>
+            <a href="/changepassword"><span class="icon">&#x1F512;</span> Change Password</a>
+            <a href="/contact-us"><span class="icon">&#x1F4E4;</span> Contact Us</a>
+            <a href="/address"><span class="icon">&#x1F4CD;</span> Address</a>
+            <a href="/logout"><span class="icon">&#x1F6AA;</span> Logout</a>
+        </nav>
+    </header>
+
+    <form id="addressForm" action="/address" method="post">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="addressLine1">Address Line 1:</label>
+        <input type="text" id="addressLine1" name="addressLine1" required>
+
+        <label for="addressLine2">Address Line 2:</label>
+        <input type="text" id="addressLine2" name="addressLine2">
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="state">State:</label>
+        <input type="text" id="state" name="state" required>
+
+        <label for="zipCode">ZIP Code:</label>
+        <input type="text" id="zipCode" name="zipCode" required>
+
+        <!-- Use type="submit" to trigger form submission -->
+        <button type="submit">Submit</button>
+    </form>
+    <footer
+        style="background-color: #333; color: #fff; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+        <p style="margin: 0;">&copy; 2023 Drone Merchandise</p>
+    </footer>
+
+</body>
+
+</html>

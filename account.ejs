@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+    <style>
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <span>Welcome, <span id="username-placeholder">
+                <%= username %>
+            </span>!</span>
+        <nav>
+            <a href="/previous-orders"><span class="icon">&#x1F4C3;</span> Previous Orders</a>
+            <a href="/changeemail"><span class="icon">&#x2709;</span> Change Email</a>
+            <a href="/changepassword"><span class="icon">&#x1F512;</span> Change Password</a>
+            <a href="/contact-us"><span class="icon">&#x1F4E4;</span> Contact-Us</a>
+            <a href="/address"><span class="icon">&#x1F4CD;</span> Address</a>
+            <a href="/logout"><span class="icon">&#x1F6AA;</span> Logout</a>
+        </nav>
+    </header>
+
+    <div id="content">
+        <div class="card">
+            <h2>Your Account Information</h2>
+            <p>Email: <span id="email-placeholder">
+                    <%= email %>
+                </span></p>
+            <h2>Your Address</h2>
+            <p>
+                Full Name: <span id="fullName-placeholder">
+                    <%= address.fullName %>
+                </span><br>
+                Address Line 1: <span id="addressLine1-placeholder">
+                    <%= address.addressLine1 %>
+                </span><br>
+                Address Line 2: <span id="addressLine2-placeholder">
+                    <%= address.addressLine2 %>
+                </span><br>
+                City: <span id="city-placeholder">
+                    <%= address.city %>
+                </span><br>
+                State: <span id="state-placeholder">
+                    <%= address.state %>
+                </span><br>
+                ZIP Code: <span id="zipCode-placeholder">
+                    <%= address.zipCode %>
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

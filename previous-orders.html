@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Orders</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        .container {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin: 20px auto;
+        }
+
+        .order-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .order-item {
+            margin-bottom: 16px;
+        }
+
+        .no-orders {
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <span>Previous Orders <span id="username-placeholder">
+            </span>!</span>
+        <nav>
+            <a href="/previous-orders"><span class="icon">&#x1F4C3;</span> Previous Orders</a>
+            <a href="/changeemail"><span class="icon">&#x2709;</span> Change Email</a>
+            <a href="/changepassword"><span class="icon">&#x1F512;</span> Change Password</a>
+            <a href="/contact-us"><span class="icon">&#x1F4E4;</span> Contact-Us</a>
+            <a href="/address"><span class="icon">&#x1F4CD;</span> Address</a>
+            <a href="/logout"><span class="icon">&#x1F6AA;</span> Logout</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Previous Orders</h2>
+        <ul class="order-list" id="orderList">
+            <!-- Orders or "No Previous Orders" message will be dynamically inserted here -->
+        </ul>
+    </div>
+
+    <script>
+        // Assume you have an array of orders available in the JavaScript code
+        const orders = [];
+
+        // Function to populate the order list
+        function populateOrderList() {
+            const orderList = document.getElementById('orderList');
+            orderList.innerHTML = ''; // Clear existing content
+
+            if (orders.length === 0) {
+                // Display "No Previous Orders" message
+                const noOrdersMessage = document.createElement('p');
+                noOrdersMessage.className = 'no-orders';
+                noOrdersMessage.textContent = 'No previous orders found.';
+                orderList.appendChild(noOrdersMessage);
+            } else {
+                // Display orders
+                orders.forEach(order => {
+                    const orderItem = document.createElement('li');
+                    orderItem.className = 'order-item';
+                    orderItem.textContent = order; // Replace with actual order details
+                    orderList.appendChild(orderItem);
+                });
+            }
+        }
+
+        // Call the function to populate the order list
+        populateOrderList();
+    </script>
+    <footer
+        style="background-color: #333; color: #fff; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+        <p style="margin: 0;">&copy; 2023 Drone Merchandise</p>
+    </footer>
+
+</body>
+
+</html>

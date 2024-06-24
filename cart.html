@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #cart {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #cart-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin-bottom: 10px;
+        }
+
+        #subtotal {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #proceed-to-pay {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #proceed-to-pay:hover {
+            background-color: #45a049;
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-top: 1px solid #ddd;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .footer a:hover {
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cart">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="subtotal">Subtotal: ₹<span id="subtotal-amount">0</span></p>
+        <button id="proceed-to-pay">Proceed to Pay</button>
+    </div>
+
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function updateCartDisplay() {
+            const cartItemsElement = document.getElementById('cart-items');
+            const subtotalAmountElement = document.getElementById('subtotal-amount');
+
+            cartItemsElement.innerHTML = '';
+
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - ₹${item.price}`;
+                cartItemsElement.appendChild(listItem);
+            });
+
+            const subtotal = cart.reduce((total, item) => total + item.price, 0);
+            subtotalAmountElement.textContent = subtotal;
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        const proceedToPayButton = document.getElementById('proceed-to-pay');
+        proceedToPayButton.addEventListener('click', function () {
+            console.log('Proceeding to pay...');
+        });
+
+        updateCartDisplay();
+
+        const ggg = document.getElementById('proceed-to-pay');
+        proceedToPayButton.addEventListener('click', function () {
+            setTimeout(() => {
+                cart.length = 0;
+                updateCartDisplay();
+
+                alert('Order Placed! Thank you for your purchase.');
+
+            }, 2000);
+        });
+    </script>
+
+
+    <div class="footer">
+        <p>&copy; 2023 Drone Merchandise. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                Service</a></p>
+    </div>
+
+</body>
+
+</html>
